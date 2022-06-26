@@ -21,6 +21,9 @@ floor_x_position = 0
 bird_surface = pygame.transform.scale2x(pygame.image.load('assets/bluebird-midflap.png').convert())
 bird_rect = bird_surface.get_rect(center = (100, 512))
 
+pipe_btm = pygame.transform.scale2x(pygame.image.load('assets/pipe-green.png').convert())
+pipe_btm_rect = pipe_btm.get_rect(center = (0, 512))
+
 while True:
   for event in pygame.event.get():
     if event.type == pygame.QUIT:
@@ -30,12 +33,16 @@ while True:
       if event.key == pygame.K_SPACE:
         bird_movement = 0
         bird_movement -= 12
+      if event.key == pygame.K_q:
+        pygame.quit()
+        sys.exit()
   
   screen.blit(bg_surface, (0,0))
 
   bird_movement += gravity
   bird_rect.centery += bird_movement
   screen.blit(bird_surface, bird_rect)
+  screen.blit(pipe_btm, (200, 300))
   floor_x_position -= 1
   draw_floor()
   if floor_x_position <= -576:
