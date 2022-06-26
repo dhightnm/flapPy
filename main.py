@@ -1,14 +1,9 @@
 import pygame, sys
-import platform, os
-# if platform.system() == "Windows"
-
-# os.environ['SDL_VIDEODRIVER']='windib'
 
 def draw_floor():
   screen.blit(floor_surface, (floor_x_position,900))
   screen.blit(floor_surface, (floor_x_position + 576,900))
 
-os.environ["SDL_VIDEODRIVER"] = "dummy"
 
 pygame.init()
 
