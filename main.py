@@ -18,7 +18,7 @@ bg_surface = pygame.transform.scale2x(pygame.image.load('assets/background-day.p
 floor_surface = pygame.transform.scale2x(pygame.image.load('assets/base.png').convert())
 floor_x_position = 0
 
-bird_surface = pygame.transform.scale2x(pygame.image.load('assets/bluebird-midflap.png').convert())
+bird_surface = pygame.transform.scale2x(pygame.image.load('assets/Ryen.png').convert())
 bird_rect = bird_surface.get_rect(center = (100, 512))
 
 while True:
