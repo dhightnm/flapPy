@@ -41,9 +41,11 @@ while True:
         sys.exit()
   
   screen.blit(bg_surface, (0,0))
+  
   if game_start == True:
     bird_movement += gravity
     bird_rect.centery += bird_movement
+
   screen.blit(bird_surface, bird_rect)
   screen.blit(pipe_btm, (200, 300))
   floor_x_position -= 1
