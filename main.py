@@ -1,3 +1,4 @@
+from random import random
 import pygame, sys
 
 def draw_floor():
@@ -21,6 +22,13 @@ floor_x_position = 0
 bird_surface = pygame.transform.scale2x(pygame.image.load('assets/Ryen.png').convert())
 bird_rect = bird_surface.get_rect(center = (100, 512))
 
+pipe_bottom = pygame.transform.scale2x(pygame.image.load('assets/pipe-green.png').convert())
+pipe_btm_rect = pipe_bottom.get_rect(topleft = (0, 512))
+pipe_btm_position = range(0, 512)
+
+def add_bottom_pipe():
+  screen.blit(pipe_bottom, (pipe_btm_position, pipe_btm_position))
+
 while True:
   for event in pygame.event.get():
     if event.type == pygame.QUIT:
@@ -30,8 +38,9 @@ while True:
       if event.key == pygame.K_SPACE:
         bird_movement = 0
         bird_movement -= 12
-  
+  add_bottom_pipe()
   screen.blit(bg_surface, (0,0))
+  
 
   bird_movement += gravity
   bird_rect.centery += bird_movement
@@ -40,6 +49,7 @@ while True:
   draw_floor()
   if floor_x_position <= -576:
     floor_x_position = 0
+ 
 
   pygame.display.update()
   clock.tick(120)
