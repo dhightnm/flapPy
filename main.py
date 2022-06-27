@@ -38,7 +38,7 @@ pipe_sfc = pygame.transform.scale2x(pygame.image.load('assets/pipe-green.png').c
 pipe_list = []
 SPAWNPIPE = pygame.USEREVENT
 pygame.time.set_timer(SPAWNPIPE, 1200)
-pipe_height = [200, 400, 600, 800]
+pipe_height = [400, 600, 800]
 
 game_start = False
 
@@ -65,7 +65,6 @@ while True:
   if game_start == True:
     bird_movement += gravity
     bird_rect.centery += bird_movement
-
   screen.blit(bird_surface, bird_rect)
   
   pipe_list = move_pipes(pipe_list)
